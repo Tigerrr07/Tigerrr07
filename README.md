@@ -1,16 +1,27 @@
-## Hi there 👋
+# Hi there, I'm a Bioinformatics Analyst 👋
 
-<!--
-**Tigerrr07/Tigerrr07** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 🧬 Algorithm Development | Spatial & Single-cell Genomics | Python & R | Open to Work (F1 OPT)
 
-Here are some ideas to get you started:
+I am a Master's candidate in Biomedical Sciences (Biomedical Informatics track) at The Ohio State University, focusing on **developing computational methods** and **analyzation** for high-dimensional genomic data.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 🔭 **I’m currently working on:** Developing **computational methods** to decode intercellular signaling patterns from **spatial transcriptomics** via **ligand-receptor interaction modeling**.
+- 🌱 **I’m currently exploring:** **Pathology foundation models** applications in detecting sensence.
+- 👯 **I’m looking to collaborate on:** Open-source bioinformatics **tool development** and large-scale data analysis.
+
+- 💬 **Ask me about:**
+  - **Single-cell & Spatial:** Seurat, Scanpy, Squidpy, Trajectory Inference, Cell-cell Interaction.
+  - **Bulk Omics:** RNA-seq (DESeq2/edgeR), Proteomics (Differential Abundance), Pathway Enrichment (GSEA/GO).
+  - **Pipelines:** HPC server.
+- 📫 **How to reach me:** tigerluyan@gmail.com
+---
+
+### 🛠️ Technical Skills
+
+| Domain | Tools & Languages |
+| :--- | :--- |
+| **Languages** | Python , R , Bash |
+| **Single-cell & Spatial** | Scanpy, Seurat, Squidpy|
+| **Bulk & Proteomics** | DESeq2, ComplexHeatmap, Proteomics Analysis|
+| **Workflow & Cloud** |  Git|
+| **Statistics** | Hypothesis Testing, Regression Analysis, Clustering, PCA |
+---
