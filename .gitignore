@@ -1,3 +1,16 @@
 # Ignore data folder
 data/
+write/
+export/
+.Rproj.user
+renv/
+
+# Python intermediate files
+__pycache__/
+.ipynb_checkpoints/
+
+# R intermediate files
+.Rprofile
+renv.lock
+.Rhistory
 

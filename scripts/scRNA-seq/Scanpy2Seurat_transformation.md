@@ -7,8 +7,9 @@ Required:
 * `adata.layers['count']`, `adata.X`
 
 ``` python
+import sys
+sys.path.append("../Python_scripts")
 from export_anndata import export_anndata
-
 export_anndata(adata, export_path='export')
 ```
 
@@ -27,7 +28,7 @@ export
 ### R script
 
 ``` R
-source("load_exported_anndata.R")
+source("../R_scripts/load_exported_anndata.R")
 # Set python data path: data.path/export
 data.path <- ""
 export_path <- file.path(data.path, "export")

@@ -1,0 +1,49 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+setwd("~/Tigerrr07/scripts/scRNA-seq")
+getwd()
+```
+
+```{r}
+source("../R_scripts/load_exported_anndata.R")
+source("../R_scripts/Dotplot.R")
+
+```
+
+## Load anndata exported from Python
+
+```{r}
+# Set python data path: data.path/export
+data.path <- "."
+export_path <- file.path(data.path, "export")
+
+# Seurat object will be saved as : data.path/write/seurat.qs
+save_path <- file.path(data.path, "write", "seurat")
+seu <- load_exported_anndata(export_path, save_path)
+```
+## Marker gene Dot plot
+```{r, fig.width=8, fig.height=4}
+marker_genes <- list(
+  `CD4 T`            = c("IL7R"),
+  `CD8 T`            = c("CD8A", "CD8B"),
+  B                 = c("CD79A", "MS4A1"),
+  NK                = c("GNLY", "NKG7"),
+  `FCGR3A+ Monocytes`= c("FCGR3A"),
+  `CD14+ Monocytes`  = c("CD14", "LGALS3", "S100A8"),
+  `Dendritic cell`   = c("FCER1A", "CST3"),
+  Megakaryocyte      = c("PPBP")
+)
+marker_genes_vec <- unique(unlist(marker_genes, use.names = FALSE))
+seu$cell_type <- factor(
+  seu$cell_type,
+  levels = rev(c("CD4 T", "CD8 T", "B", "NK", "FCGR3A+ Monocytes",
+             "CD14+ Monocytes", "Dendritic cell", "Megakaryocyte"))
+)
+
+p <- scDotPlot(seu, features = marker_genes_vec, group.by = "cell_type")
+p
+```
