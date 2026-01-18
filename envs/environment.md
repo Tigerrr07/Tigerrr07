@@ -35,8 +35,8 @@ renv::snapshot()
 ## scRNA-seq & ST data analysis, Python and R, conda envrionment
 Manually installation:
 ``` bash
-conda create -n scRNA_pipline python=3.10
-
+conda create -n scRNA_pipline python=3.10 -y
+conda activate scRNA_pipline
 # Python packages
 pip install ipykernel # For jupyter notebook
 pip install ipywidgets
