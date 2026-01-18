@@ -12,7 +12,7 @@ I am a Master's candidate in Biomedical Sciences (Biomedical Informatics track) 
   - **Single-cell & Spatial:** Seurat, Scanpy, Squidpy, Trajectory Inference, Cell-cell Interaction.
   - **Bulk Omics:** RNA-seq (DESeq2/edgeR), Proteomics (Differential Abundance), Pathway Enrichment (GSEA/GO).
   - **Pipelines:** HPC server.
-- 📫 **How to reach me:** tigerluyan@gmail.com
+- 📫 **How to reach me:** chen.13589@osu.edu
 ---
 
 ### 🛠️ Technical Skills
