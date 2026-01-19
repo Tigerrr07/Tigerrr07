@@ -8,15 +8,16 @@ setwd("~/Tigerrr07/scripts/scRNA-seq")
 getwd()
 ```
 
-```{r}
+```{r, message=FALSE}
 source("../R_scripts/load_exported_anndata.R")
 source("../R_scripts/Dotplot.R")
+source("../R_scripts/Heatmap.R")
 
 ```
 
 ## Load anndata exported from Python
 
-```{r}
+```{r, warning=FALSE}
 # Set python data path: data.path/export
 data.path <- "."
 export_path <- file.path(data.path, "export")
@@ -25,8 +26,13 @@ export_path <- file.path(data.path, "export")
 save_path <- file.path(data.path, "write", "seurat")
 seu <- load_exported_anndata(export_path, save_path)
 ```
-## Marker gene Dot plot
-```{r, fig.width=8, fig.height=4}
+## Read data
+```{r}
+seu <- qread("write/seurat.qs")
+```
+
+## Marker gene
+```{r}
 marker_genes <- list(
   `CD4 T`            = c("IL7R"),
   `CD8 T`            = c("CD8A", "CD8B"),
@@ -44,6 +50,36 @@ seu$cell_type <- factor(
              "CD14+ Monocytes", "Dendritic cell", "Megakaryocyte"))
 )
 
+# Set lineage
+new_labels <- c(
+  "CD4 T"             = "Lymphoid",
+  "CD8 T"             = "Lymphoid",
+  "B"                 = "Lymphoid",
+  "NK"                = "Lymphoid",
+  "FCGR3A+ Monocytes" = "Myeloid",
+  "CD14+ Monocytes"   = "Myeloid",
+  "Dendritic cell"    = "Myeloid",
+  "Megakaryocyte"     = "Myeloid"
+)
+
+seu$lineage <- unname(new_labels[as.character(seu$cell_type)])
+seu$lineage <- factor(seu$lineage, levels = c("Lymphoid", "Myeloid"))
+
+```
+
+# Marker gene Dot plot
+```{r, fig.width=8, fig.height=4, message=FALSE}
 p <- scDotPlot(seu, features = marker_genes_vec, group.by = "cell_type")
 p
 ```
+
+
+
+
+## Lineage, cell_type, Heatmap
+```{r, fig.width=8, fig.height=5, message=FALSE}
+scHeatmap(seu, features = marker_genes, 
+          group.by = c("lineage", "cell_type"),
+          save_path="sc_heatmap.pdf", width = 6.5, height = 5)
+```
+

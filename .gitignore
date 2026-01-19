@@ -13,4 +13,5 @@ __pycache__/
 .Rprofile
 renv.lock
 .Rhistory
+scRNA-seq.Rproj
 
