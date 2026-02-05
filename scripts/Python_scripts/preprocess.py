@@ -1,3 +1,5 @@
+import os
+os.environ["RENV_CONFIG_AUTOLOADER_ENABLED"] = "FALSE"
 import logging
 # R-Python interop imports
 import anndata2ri
@@ -6,7 +8,6 @@ import rpy2.robjects as ro
 from rpy2.robjects import numpy2ri, pandas2ri
 from rpy2.robjects.vectors import StrVector
 from rpy2.robjects.packages import importr
-import os
 import scanpy as sc
 import numpy as np
 import pandas as pd

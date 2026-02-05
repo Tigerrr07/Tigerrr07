@@ -4,14 +4,34 @@ library(ggplot2)
 
 
 scDotPlot <- function(seu, features, group.by, my_colors = c("#4A90E2", "#D9D9D9", "#D0021B")) {
+
+  meta_df <- seu@meta.data
+  for (col in group.by) {
+    if (!is.factor(meta_df[[col]])) {
+      meta_df[[col]] <- factor(meta_df[[col]], levels = sort(unique(meta_df[[col]])))
+    }
+  }
+  if (length(group.by) == 1) {
+    seu$combined_group <- as.character(meta_df[, group.by])
+  } else {
+    seu$combined_group <- apply(meta_df[, group.by, drop = FALSE], 1, paste, collapse = " - ")
+  }
+  
   p <- Seurat::DotPlot(
     seu,
     features = features, 
-    group.by = group.by
+    group.by = "combined_group"
   ) + 
     scale_color_gradientn(colours = my_colors)
-  
-  p <- ggplot(p$data, aes(x = features.plot, y = id)) +
+  plot_data <- p$data
+
+  level_list <- lapply(rev(group.by), function(col) levels(meta_df[[col]]))
+  group_combos <- expand.grid(level_list, stringsAsFactors = FALSE)
+  ordered_group_names <- do.call(paste, c(rev(group_combos), sep = " - "))
+  valid_group_names <- ordered_group_names[ordered_group_names %in% unique(plot_data$id)]
+  plot_data$id <- factor(plot_data$id, levels = rev(valid_group_names))
+
+  p <- ggplot(plot_data, aes(x = features.plot, y = id)) +
     geom_point(
       aes(size = pct.exp, fill = avg.exp.scaled),
       shape = 21,

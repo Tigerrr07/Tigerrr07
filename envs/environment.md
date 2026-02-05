@@ -127,8 +127,11 @@ Error: package or namespace load failed for ‘igraph’ in dyn.load(file, DLLpa
 ```R
 
 # 1. Remove all 'miniconda' paths from the environment
-Sys.setenv(PATH = paste(grep("miniconda", strsplit(Sys.getenv("PATH"), ":")[[1]], 
+Sys.getenv("PATH")
+Sys.getenv("LD_LIBRARY_PATH")
+Sys.setenv(PATH = paste(grep("conda", strsplit(Sys.getenv("PATH"), ":")[[1]], 
                              value = TRUE, invert = TRUE), collapse = ":"))
+
 
 # 2. Install
 renv::install("Seurat@5.0.3")

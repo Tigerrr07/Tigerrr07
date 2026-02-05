@@ -1,27 +1,23 @@
-# Hi there, I'm a Bioinformatics Analyst 👋
+# Hi there, I'm a Bioinformatics Analyst | Computational Biologist 👋
 
 ### 🧬 Algorithm Development | Spatial & Single-cell Genomics | Python & R | Open to Work (F1 OPT)
 
-I am a Master's candidate in Biomedical Sciences (Biomedical Informatics track) at The Ohio State University, focusing on **developing computational methods** and **analyzation** for high-dimensional genomic data.
+I am a Master's candidate in Biomedical Sciences (**Biomedical Informatics track**) at The Ohio State University, focusing on **developing computational methods** and **analyzation** for high-dimensional genomic data.
 
-- 🔭 **I’m currently working on:** Developing **computational methods** to decode intercellular signaling patterns from **spatial transcriptomics** via **ligand-receptor interaction modeling**.
-- 🌱 **I’m currently exploring:** **Pathology foundation models** applications in detecting sensence.
-- 👯 **I’m looking to collaborate on:** Open-source bioinformatics **tool development** and large-scale data analysis.
+- 🔭 **I’m currently working on:** Developing **computational methods** to decode intercellular signaling patterns from **spatial transcriptomics** through **ligand-receptor interaction modeling**, and conducting **large-scale single-cell RNA-seq analyses**.
+- 👯 **I’m looking to collaborate on:** Open-source bioinformatics **tool development** and large-scale omics data analysis projects.
+- 🌱 **I’m open to many areas:** **Digital pathology** applications and emerging **spatial omics technologies**.
 
-- 💬 **Ask me about:**
-  - **Single-cell & Spatial:** Seurat, Scanpy, Squidpy, Trajectory Inference, Cell-cell Interaction.
-  - **Bulk Omics:** RNA-seq (DESeq2/edgeR), Proteomics (Differential Abundance), Pathway Enrichment (GSEA/GO).
-  - **Pipelines:** HPC server.
 - 📫 **How to reach me:** chen.13589@osu.edu
 ---
 
 ### 🛠️ Technical Skills
 
-| Domain | Tools & Languages |
+| Domain | Tools & Technologies |
 | :--- | :--- |
-| **Languages** | Python , R , Bash |
-| **Single-cell & Spatial** | Scanpy, Seurat, Squidpy|
-| **Bulk & Proteomics** | DESeq2, ComplexHeatmap, Proteomics Analysis|
-| **Workflow & Cloud** |  Git|
-| **Statistics** | Hypothesis Testing, Regression Analysis, Clustering, PCA |
----
+| **Programming** | Python, R, Bash/Shell, C++ |
+| **Data Science / Machine Learning** | pandas, NumPy, scikit-learn, PyTorch |
+| **Bioinformatics Tools** | Cell Ranger, Seurat, Scanpy, Squidpy, STAR, HISAT2, kallisto, DESeq2, edgeR, limma |
+| **Omics Data Analysis** | Single-cell RNA-seq, Spatial Transcriptomics (10x Visium, Xenium), Bulk RNA-seq, Proteomics (Mass spectrometry, RPPA) |
+| **Platforms** | Linux, GitHub, HPC Clusters, VS Code |
+| **Data Visualization** | ggplot2, matplotlib |

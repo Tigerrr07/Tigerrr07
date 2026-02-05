@@ -8,7 +8,7 @@ Required:
 
 ``` python
 import sys
-sys.path.append("../Python_scripts")
+sys.path.append("/users/PAS2148/tiger/Tigerrr07/scripts/Python_scripts") # Replace with real path
 from export_anndata import export_anndata
 export_anndata(adata, export_path='export')
 ```
@@ -28,7 +28,7 @@ export
 ### R script
 
 ``` R
-source("../R_scripts/load_exported_anndata.R")
+source("/users/PAS2148/tiger/Tigerrr07/R_scripts/load_exported_anndata.R") # Replace with real path
 # Set python data path: data.path/export
 data.path <- ""
 export_path <- file.path(data.path, "export")

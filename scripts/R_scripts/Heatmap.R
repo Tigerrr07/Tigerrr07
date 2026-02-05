@@ -1,9 +1,10 @@
 library(Seurat)
 library(ggplot2)
 library(reshape2)
-library(ComplexHeatmap)
-library(circlize)
 library(RColorBrewer)
+library(circlize)
+library(ComplexHeatmap)
+
 
 scHeatmap <- function(seu, 
                       features, 
@@ -18,7 +19,8 @@ scHeatmap <- function(seu,
                       title_fontsize = 10,
                       name = 'Z-score',
                       save_path = NULL,
-                      width = 6, height = 5, units = "in", dpi = 300
+                      width = 6, height = 5, units = "in", dpi = 300,
+                      split_first = FALSE
 ) {
   
   meta_df <- seu@meta.data
@@ -52,11 +54,10 @@ scHeatmap <- function(seu,
   plot_data <- p$data
 
   # --- 4. Define Strict Group Ordering ---
-  level_list <- lapply(group.by, function(col) levels(meta_df[[col]]))
+  level_list <- lapply(rev(group.by), function(col) levels(meta_df[[col]]))
   group_combos <- expand.grid(level_list, stringsAsFactors = FALSE)
-  ordered_group_names <- apply(group_combos, 1, paste, collapse = " - ")
+  ordered_group_names <- do.call(paste, c(rev(group_combos), sep = " - "))
   valid_group_names <- ordered_group_names[ordered_group_names %in% unique(plot_data$id)]
-
   # --- 5. Construct and Order the Matrix ---
   mat <- dcast(plot_data, features.plot ~ id, value.var = "avg.exp.scaled")
   rownames(mat) <- mat$features.plot
@@ -118,7 +119,7 @@ scHeatmap <- function(seu,
     df = anno_df,
     col = anno_colors,
     annotation_name_gp = gpar(fontsize = legend_fontsize),
-    show_annotation_name = FALSE, # <--- NEW: Hides top annotation names
+    show_annotation_name = FALSE, # Hides top annotation names
     gap = unit(2, "mm")
   )
   
@@ -143,7 +144,20 @@ scHeatmap <- function(seu,
     )
   }
 
-  n_splits <- length(unique(anno_df[[group.by[1]]]))
+  if (length(group.by) == 1) {
+    split_first <- FALSE
+  }
+
+
+  if (split_first) {
+    n_splits <- length(unique(anno_df[[group.by[1]]]))
+    column_split <- anno_df[[group.by[1]]]
+    column_title <- rep("", n_splits)
+  }
+  else {
+    column_split <- NULL
+    column_title <- NULL
+  }
   # --- 9. Draw Heatmap ---
   ht_params <- list(
     matrix = mat,
@@ -154,7 +168,7 @@ scHeatmap <- function(seu,
     cluster_columns = FALSE,   
     show_row_names = TRUE,
     show_column_names = FALSE,
-    column_split = anno_df[[group.by[1]]], 
+    column_split = column_split,
     column_gap = unit(2, "mm"),
     row_names_gp = gpar(fontsize = row_fontsize),
     column_names_gp = gpar(fontsize = column_fontsize),
@@ -162,7 +176,7 @@ scHeatmap <- function(seu,
       title_gp = gpar(fontsize = title_fontsize, fontface = "bold"),
       labels_gp = gpar(fontsize = legend_fontsize)
     ),
-    column_title = rep("", n_splits)
+    column_title = column_title
   )
   
   if (use_gene_sets) {
@@ -194,5 +208,5 @@ draw_func <- function() {
 
   draw_func()
   
-  return(mat)
+  # return(list(mat = mat, anno_df=anno_df))
 }
