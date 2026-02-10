@@ -19,5 +19,5 @@ I am a Master's candidate in Biomedical Sciences (**Biomedical Informatics track
 | **Data Science / Machine Learning** | pandas, NumPy, scikit-learn, PyTorch |
 | **Bioinformatics Tools** | Cell Ranger, Seurat, Scanpy, Squidpy, STAR, HISAT2, kallisto, DESeq2, edgeR, limma |
 | **Omics Data Analysis** | Single-cell RNA-seq, Spatial Transcriptomics (10x Visium, Xenium), Bulk RNA-seq, Proteomics (Mass spectrometry, RPPA) |
-| **Platforms** | Linux, GitHub, HPC Clusters, VS Code |
+| **Platforms** | Linux, GitHub, HPC Clusters, VS Code, Shiny |
 | **Data Visualization** | ggplot2, matplotlib |
