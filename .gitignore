@@ -4,6 +4,8 @@ write/
 export/
 .Rproj.user
 renv/
+export_seurat/
+export_anndata/
 
 # Python intermediate files
 __pycache__/
@@ -15,3 +17,5 @@ renv.lock
 .Rhistory
 scRNA-seq.Rproj
 
+endo.Rmd
+endo.nb.html

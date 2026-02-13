@@ -9,7 +9,7 @@ getwd()
 ```
 
 ```{r, message=FALSE}
-source("../R_scripts/load_exported_anndata.R")
+source("../R_scripts/seurat_anndata_transformation.R")
 source("../R_scripts/Dotplot.R")
 source("../R_scripts/Heatmap.R")
 ```
@@ -19,7 +19,7 @@ source("../R_scripts/Heatmap.R")
 ```{r, warning=FALSE}
 # Set python data path: data.path/export
 data.path <- "."
-export_path <- file.path(data.path, "export")
+export_path <- file.path(data.path, "export_anndata")
 
 # Seurat object will be saved as : data.path/write/seurat.qs
 save_path <- file.path(data.path, "write", "seurat")
