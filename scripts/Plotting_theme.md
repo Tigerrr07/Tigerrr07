@@ -3,24 +3,25 @@
 * Black font.
 * No grid line, keep x and y axis.
 * Adjust line width.
+* Adjust ticks width.
 
 ``` R
 # element_blank() if not show
 theme_classic() +
 theme(
+  panel.grid = element_blank(),
   legend.position = "right",
   plot.title = element_text(hjust = 0.5, color = "black"),
-  axis.title = element_text(color = "black", size = 12),
-  axis.text.y = element_text(color = "black", size = 12),
-  axis.text.x = element_text(color = "black", size = 12),
-  legend.text = element_text(color = "black", size = 12),
-  legend.title = element_text(color = "black", size = 12),
-  panel.grid = element_blank(),
-  axis.line.x = element_line(color = "black", linewidth = 1, lineend = "square"),
-  axis.line.y = element_line(color = "black", linewidth = 1, lineend = "square"),
-  axis.ticks.x = element_line(color = "black", linewidth = 1),
-  axis.ticks.y = element_line(color = "black", linewidth = 1),
-  axis.ticks.length = unit(12, "pt")
+  legend.text = element_text(color = "black", size = 14),
+  legend.title = element_text(color = "black", size = 14),
+  axis.title = element_text(color = "black", size = 14),
+  axis.text.x = element_text(color = "black", size = 14),
+  axis.text.y = element_text(color = "black", size = 14),
+  axis.line.x = element_line(color = "black", linewidth = 0.7, lineend = "square"),
+  axis.line.y = element_line(color = "black", linewidth = 0.7, lineend = "square"),
+  axis.ticks.x = element_line(color = "black", linewidth = 0.7),
+  axis.ticks.y = element_line(color = "black", linewidth = 0.7),
+  axis.ticks.length = unit(4, "pt")
 )
 ```
 

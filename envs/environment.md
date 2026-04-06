@@ -31,6 +31,16 @@ renv::install("clusterProfiler")
 renv::snapshot()
 ```
 
+Run R in command in OSC:
+```
+module load gcc/12.3.0
+module load R/4.4.0
+
+# cd into renv folder, like:
+# cd /users/PAS2148/tiger/Tigerrr07/scripts/scRNA-seq
+cd /path/to/renv
+```
+
 ## scRNA-seq & ST data analysis, Python and R, conda abd renv envrionment
 Manually installation, conda environment:
 ``` bash
