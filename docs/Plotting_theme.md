@@ -28,7 +28,7 @@ theme(
 
 ## Python matplotlib theme
 ### plot header
-Add this header, so that the font could be edited in Ai.
+Add this header, so that the font could be edited in adobe illustrator.
 ``` python
 from matplotlib import rcParams
 
@@ -61,4 +61,67 @@ ax.tick_params(axis='y', width=3, length=6)
 ax.set_xticks([])
 ax.set_yticks([])
 fig.savefig(fig_name) # pdf or svg
+```
+
+### Plot scanpy spatial maps
+* Save given size of spatial maps
+``` python
+# if ct is cell_type from deconvolution
+with plt.rc_context({'font.size': 15, 'legend.markerscale': 2.0}):
+    sc.pl.spatial(
+        adata, 
+        color=ct, 
+        spot_size=spot_size, 
+        frameon=False, 
+        cmap='magma', 
+        img_key=None,
+        vmin=0, 
+        vmax='p99', 
+        show=False, 
+        title='',
+        colorbar_loc=None
+    )
+    
+    # Get current graph
+    fig = plt.gcf()    
+    fig.set_size_inches(4, 4)
+    fig.subplots_adjust(left=0.001, right=0.999, top=0.999, bottom=0.001) # adjust
+    plt.savefig(f"{ct.replace(' ', '_')}.pdf")
+    plt.close()
+    
+    # Create separate colobar
+    mappable = fig.axes[0].collections[0]
+    fig_cbar, ax_cbar = plt.subplots(figsize=(0.6, 2))
+    fig_cbar.subplots_adjust(left=0.1, right=0.3, top=0.95, bottom=0.05)
+    cbar = plt.colorbar(mappable, cax=ax_cbar)
+    cbar.ax.tick_params(labelsize=15)
+    
+    # save colorbar
+    plt.savefig(f"{ct.replace(' ', '_')}_colorbar.pdf")
+    plt.close(fig_cbar)
+```
+
+
+## Change defult font in Python
+Copy system Arial.tff to a remote path:
+
+``` bash
+~/.local/share/fonts/arial
+```
+
+Change the settings
+``` python
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+
+font_dir = "~/.local/share/fonts/arial"
+for f in font_manager.findSystemFonts(fontpaths=[font_dir]):
+    font_manager.fontManager.addfont(f)
+
+plt.rcParams["font.family"] = "Arial"
+plt.rcParams["axes.unicode_minus"] = False
+
+
+# fc-cache -f -v ~/.local/share/fonts
+# fc-match Arial
 ```

@@ -1,0 +1,5 @@
+sample,fastq_1,fastq_2,replicate
+WT,toy_data/WT_rep1_R1.fastq.gz,toy_data/WT_rep1_R2.fastq.gz,1
+WT,toy_data/WT_rep2_R1.fastq.gz,toy_data/WT_rep2_R2.fastq.gz,2
+KO,toy_data/KO_rep1_R1.fastq.gz,toy_data/KO_rep1_R2.fastq.gz,1
+KO,toy_data/KO_rep2_R1.fastq.gz,toy_data/KO_rep2_R2.fastq.gz,2
